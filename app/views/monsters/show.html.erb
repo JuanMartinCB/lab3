@@ -1,1 +1,20 @@
-<%# Update me %><%= @monster.inspect %>
+<%# Update me %>
+<h1><%= @monster.name %></h1>
+<table class="table table-bordered ">
+  <thead class="table-dark text-center">
+    <tr>
+      <th scope="col">Descripción</th>
+      <th scope="col">Tweets</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @monster.description %><span><%= button_to "Eliminar", @monster, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger"%></span></td> 
+      
+      <td>
+        <% @monster.tweets.each do |tweet| %>
+          <ul><%= tweet.content%></ul>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
